@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人简历</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 8px; }
+        .title { cursor: pointer; color: #007bff; padding: 10px; background: #f8f9fa; }
+        .content { display: none; padding: 15px; }
+        .skill-bar { height: 15px; background: #eee; margin: 8px 0; border-radius: 4px; }
+        .skill-fill { height: 100%; width: 0%; background: #4CAF50; transition: 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>陈迪翱</h1>
+        <p>会计学 | 学生 | 上海</p>
+    </div>
+
+    <div class="card">
+        <div class="title" onclick="toggleContent(this)">🎓 教育背景</div>
+        <div class="content" id="education"></div>
+    </div>
+
+    <div class="card">
+        <div class="title" onclick="toggleContent(this)">💼 工作经历</div>
+        <div class="content" id="experience"></div>
+    </div>
+
+    <div class="card">
+        <div class="title" onclick="toggleContent(this)">🛠️ 技术技能</div>
+        <div class="content" id="skills"></div>
+    </div>
+
+    <script>
+        // 数据定义
+        const resumeData = {
+            education: [
+                { school: '上海对外经贸大学', major: '会计学', year: '2023-2027' }
+            ],
+
+            
+            skills: [
+                { name: '会计', level: 90 },
+                { name: '审计', level: 85 },
+                { name: '经法', level: 80 },
+                { name: 'excel', level: 70 }
+            ]
+        };
+
+        // 渲染函数
+        function renderEducation() {
+            const html = resumeData.education.map(edu => `
+                <div class="item">
+                    <h3>${edu.school}</h3>
+                    <p>${edu.major} | ${edu.year}</p>
+                </div>
+            `).join('');
+            document.getElementById('education').innerHTML = html;
+        }
+
+        function renderExperience() {
+            const html = resumeData.experience.map(exp => `
+                <div class="item">
+                    <h3>${exp.company} - ${exp.position}</h3>
+                    <p>${exp.duration}</p>
+                    <ul>${exp.projects.map(p => `<li>• ${p}</li>`).join('')}</ul>
+                </div>
+            `).join('');
+            document.getElementById('experience').innerHTML = html;
+        }
+
+        function renderSkills() {
+            const html = resumeData.skills.map(skill => `
+                <div class="skill">
+                    <span>${skill.name}</span>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: ${skill.level}%"></div>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('skills').innerHTML = html;
+        }
+
+        // 切换内容显示
+        function toggleContent(element) {
+            const content = element.nextElementSibling;
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            element.style.fontWeight = content.style.display === 'block' ? 'bold' : 'normal';
+        }
+
+        // 初始化渲染
+        renderEducation();
+        renderExperience();
+        renderSkills();
+    </script>
+</body>
+</html>
