@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        <li>昵称：<input type="text"></li>
-        <li>密码：<input type="text"></li>
-        <li>邮箱：<input type="text"></li>
-        <li>性别：<input type="checkbox">男<input type="checkbox">女</li>
-        <li>爱好：<input type="checkbox">旅游 <input type="checkbox">摄影 <input type="checkbox">运动</li>
-    </ul>
-    <p>个人简介：</p>
-    <textarea name="" id=""></textarea>
-    <p>上传个人照片:</p>
-    <input type="file" id="选择文件">
-    <p><button>立即注册</button></p>
+    <form action="">
+        <label for="">昵称：</label>
+        <input type="text" name="username" id="" placeholder="请输入昵称"><br>
+        <label for="">密码：</label>
+        <input type="password" name="password" id=""><br>
+        <label for="">邮箱：</label>
+        <input type="text" name="email" id=""><br> 
+        <label for="">性别：</label>
+        <input type="radio" name="gender" id=""> 男
+        <input type="radio" name="gender" id=""> 女<br>
+        <label for="">爱好：</label>
+        <input type="checkbox" name="hobby" id=""> 旅游
+        <input type="checkbox" name="hobby" id=""> 摄影
+        <input type="checkbox" name="hobby" id=""> 运动<br>
+        <label for="">个人简介：</label><br>
+        <textarea name="" id=""></textarea><br>
+        <label for="">上传个人照片：</label><br>
+        <input type="text"><br>
+        <input type="file" name="" id=""><hr>
+        <input type="button" name="register" id="" value="立即注册">
+    </form>
 </body>
 </html>
